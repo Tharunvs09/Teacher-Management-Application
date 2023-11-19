@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Teacher Management</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        .btn-link {
+            color: blue;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Teacher Management</h2>
+        <div class="list-group mt-4">
+            <a href="{{ url_for('show_teachers') }}" class="list-group-item list-group-item-action btn-link">
+                Show all teachers
+            </a>
+            <a href="{{ url_for('add_teacher') }}" class="list-group-item list-group-item-action btn-link">
+                Add a teacher
+            </a>
+            <a href="{{ url_for('filter_teachers') }}" class="list-group-item list-group-item-action btn-link">
+                Filter teachers
+            </a>
+            {% for teacher in teachers %}
+                <a href="{{ url_for('update_teacher', teacher_id=teacher[0]) }}" class="list-group-item list-group-item-action btn-link">
+                    Update {{ teacher[1] }}'s record
+                </a>
+            {% endfor %}
+            {% for teacher in teachers %}
+                <a href="{{ url_for('delete_teacher', teacher_id=teacher[0]) }}" class="list-group-item list-group-item-action btn-link">
+                    Delete {{ teacher[1] }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

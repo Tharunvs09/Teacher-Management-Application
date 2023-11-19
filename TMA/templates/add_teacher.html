@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Teacher Management</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Add Teacher</h2>
+        <form method="POST" action="{{ url_for('add_teacher') }}">
+            <div class="form-group">
+                <label for="full_name">Full Name:</label>
+                <input type="text" class="form-control" id="full_name" name="full_name" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" class="form-control" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="text" class="form-control" id="dob" name="dob" placeholder="YYYY-MM-DD" required>
+            </div>
+            <div class="form-group">
+                <label for="classes">Number of Classes:</label>
+                <input type="number" class="form-control" id="classes" name="classes" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
